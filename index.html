@@ -6,15 +6,48 @@
       rel="icon"
       type="image/png"
       href="favicon/favicon-96x96.png"
-      sizes="96x96"/>
+      sizes="96x96"
+    />
     <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
     <link rel="shortcut icon" href="favicon/favicon.ico" />
     <link
       rel="apple-touch-icon"
       sizes="180x180"
-      href="favicon/apple-touch-icon.png"/>
+      href="favicon/apple-touch-icon.png"
+    />
     <link rel="manifest" href="favicon/site.webmanifest" />
     <link rel="stylesheet" href="css/249.css" />
+    <script>
+      const audio = document.getElementById("track");
+      const btn = document.getElementById("playPauseBtn");
+      const progressBar = document.getElementById("progressBar");
+      const container = document.getElementById("progressContainer");
+
+      // 1. Кнопка Play/Pause
+      btn.addEventListener("click", () => {
+        if (audio.paused) {
+          audio.play();
+          btn.textContent = "Pause";
+        } else {
+          audio.pause();
+          btn.textContent = "Play";
+        }
+      });
+
+      // 2. Обновление полоски прогресса
+      audio.addEventListener("timeupdate", () => {
+        const percent = (audio.currentTime / audio.duration) * 100;
+        progressBar.style.width = percent + "%";
+      });
+
+      // 3. Перемотка кликом по полоске
+      container.addEventListener("click", (e) => {
+        const width = container.clientWidth;
+        const clickX = e.offsetX;
+        const duration = audio.duration;
+        audio.currentTime = (clickX / width) * duration;
+      });
+    </script>
   </head>
   <body>
     <h1>Egorka249</h1>
@@ -22,8 +55,8 @@
       src="https://ltdfoto.ru/images/2026/01/28/d572de771a723a660fa5b73355f1d903.jpg"
       alt="d572de771a723a660fa5b73355f1d903.jpg"
     />
-    <h3>IT developer</h3>
-    <div class="hui">
+    <h3>WEB developer</h3>
+    <div class="cvr">
       <p>HTML,CSS,Python</p>
       <div class="container">
         <p>❤️Я люблю❤️:</p>
@@ -33,10 +66,19 @@
           <li>колледж</li>
         </ul>
       </div>
-      <audio controls>
-        <source src="music/serenity - VIP Kiss .mp3" type="audio/mpeg" />
-      </audio>
-      <a target="blank" href="https://www.youtube.com/watch?v=0Ya9dqq13BM&list=LL&index=2">Проекты</a>
+      <audio id="track" src="music/serenity - VIP Kiss .mp3"></audio>
+
+      <div class="player">
+        <button id="playPauseBtn" class="play-btn">►</button>
+        <div class="progress-container" id="progressContainer">
+          <div class="progress-bar" id="progressBar"></div>
+        </div>
+      </div>
+
+      <a
+        target="blank"
+        href="https://www.youtube.com/watch?v=0Ya9dqq13BM&list=LL&index=2"
+        >Проекты</a>
     </div>
   </body>
 </html>

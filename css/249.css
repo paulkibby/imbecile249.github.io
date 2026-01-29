@@ -32,8 +32,11 @@ h1 {
 }
 a {
   font-size: 25px;
-  color: #1a1a1a;
+  color: #272727;
   text-decoration: none;
+}
+a:hover {
+  color:#494949;
 }
 .container {
   background: #ffffff;
@@ -45,7 +48,7 @@ a {
  background-color: rgb(255, 255, 255);
   color: black;
 }
-.hui {
+.cvr {
   align-items: center;
  display:flex;
  flex-direction: column;
@@ -57,4 +60,40 @@ a {
 li {
   display: inline-block;
   margin-right: 25px;
+}
+
+
+.player {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: #2c2c2c;
+  padding: 10px 20px;
+  border-radius: 12px;
+  width: fit-content;
+}
+
+.play-btn {
+  background: #fff281;
+  color: rgb(0, 0, 0);
+  font-weight: 600;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.progress-container {
+  width: 200px;
+  height: 8px;
+  background: #444;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.progress-bar {
+  width: 0%; /* Будет меняться через JS */
+  height: 100%;
+  background: #ffffff;
+  border-radius: 4px;
 }
