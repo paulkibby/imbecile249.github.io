@@ -97,7 +97,8 @@ li {
     color: inherit;
 }
 .contact-card:hover {
-    transform: translateY(-5px); 
+    transform: translateY(-5px);
+    color: #272727;
 }
 @media (max-width: 600px) {
     .contact-block {
