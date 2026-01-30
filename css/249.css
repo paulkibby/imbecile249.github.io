@@ -17,7 +17,7 @@ body {
 
 html {
   font-family: "Montserrat", sans-serif;
-  font-optical-sizing:auto;
+  font-optical-sizing: auto;
   font-style: normal;
 }
 body {
@@ -25,10 +25,11 @@ body {
   min-height: 100vh;
   text-align: center;
   line-height: 1.5;
-  background: linear-gradient(45deg, #ffe4b5, #696969);
+  background: linear-gradient(135deg, #ffe4b5 0%, #e8d4b0 40%, #696969 100%);
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 20px;
 }
 .avatar {
   border: 10px solid #fff;
@@ -41,6 +42,7 @@ a {
   font-size: 25px;
   color: #272727;
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 a:hover {
   color: #494949;
@@ -51,7 +53,7 @@ h1 {
   margin-bottom: 0;
 }
 h2 {
-color: #fff;
+color: #686868;
 }
 h4 {
 font-size: 25px;
@@ -61,6 +63,7 @@ color: #272727;
   background: #ffffff;
   padding: 5px 30px;
   border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 .cvr {
   align-items: center;
@@ -70,6 +73,10 @@ color: #272727;
   list-style-type: none;
   color: rgb(37, 37, 37);
   font-weight: 600;
+  padding: 25px 35px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
 }
 li {
   display: inline-block;
@@ -92,12 +99,14 @@ li {
     background-color: #ffffff;
     padding: 15px 20px;
     border-radius: 12px;
-    transition: transform 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
     text-decoration: none;
     color: inherit;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
 }
 .contact-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 @media (max-width: 600px) {
     .contact-block {
@@ -126,6 +135,7 @@ li {
   padding: 10px 20px;
   border-radius: 12px;
   width: fit-content;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 .play-btn {
   background: #fff281;
@@ -208,10 +218,10 @@ li {
   width: 100%;
   height: 500px;
   object-fit: cover;
-  border-radius: 10px; /* Закругленные углы */
-  border: 4px solid #fff; /* Белая обводка */
+  border-radius: 10px; 
+  border: 4px solid #fff; 
   box-shadow: 0 0 5px #fff;
-  transition: transform 0.3s ease; /* Для плавной анимации */
+  transition: transform 0.3s ease;
 }
 
 .gallery-item img:hover {
