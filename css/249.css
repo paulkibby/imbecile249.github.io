@@ -98,7 +98,6 @@ li {
 }
 .contact-card:hover {
     transform: translateY(-5px);
-    color: #272727;
 }
 @media (max-width: 600px) {
     .contact-block {
@@ -194,16 +193,24 @@ li {
 }
 
 .gallery {
-  display: block;
-  gap: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
   padding: 20px;
 }
 
+.gallery-item {
+  width: 100%;
+  max-width: 900px;
+}
 .gallery-item img {
   width: 100%;
   height: 500px;
   object-fit: cover;
   border-radius: 10px; /* Закругленные углы */
+  border: 4px solid #fff; /* Белая обводка */
+  box-shadow: 0 0 5px #fff;
   transition: transform 0.3s ease; /* Для плавной анимации */
 }
 
