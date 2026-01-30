@@ -104,6 +104,10 @@ li {
     color: inherit;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
 }
+.contact-card-center {
+  grid-column: 1 / -1;
+  justify-self: center;
+}
 .contact-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
@@ -115,15 +119,15 @@ li {
 }
 .contact-card i {
     font-size: 24px;
-    margin-right: 15px; /* Отступ между иконкой и текстом */
+    margin-right: 15px; 
 }
 
 .contact-card i.fa-telegram-plane {
-    color: #333; /* чёрно-белый */
+    color: #333; 
 }
 
 .contact-card i.fa-github {
-    color: #333; /* Фирменный цвет GitHub */
+    color: #333; 
 }
 
 
