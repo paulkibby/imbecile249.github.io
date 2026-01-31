@@ -84,11 +84,12 @@ li {
 }
 
 
+
+
 .disf {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  align-items: flex-start;
   align-content: space-between;
   background-color: #272727;
   border-radius: 10px;
@@ -117,6 +118,10 @@ li {
   padding: 0px 5px;
   border-radius: 10px; 
 }
+
+
+
+
 
 
 .contact-block {
