@@ -43,11 +43,11 @@
       </div>
       <ul>
         <li><a href="index2.html">Photo</a></li>
-        <li><a target="blank"
-          href="https://www.youtube.com/watch?v=0Ya9dqq13BM&list=LL&index=2"
-          >Projects</a></li>
+        <!--<li><a
+          href="test.html"
+          >Test</a></li>-->
       </ul>
-        <a href=contact.html>Contact</a>
+        <a href=contact.html>Contact</a>   
     </div>
 
     <script>
@@ -68,18 +68,42 @@
       });
 
       // 2. Обновление полоски прогресса
+      let isSeeking = false;
       audio.addEventListener("timeupdate", () => {
-        const percent = (audio.currentTime / audio.duration) * 100;
-        progressBar.style.width = percent + "%";
+        if (!isSeeking) {
+          const percent = (audio.currentTime / audio.duration) * 100;
+          progressBar.style.width = percent + "%";
+        }
       });
 
-      // 3. Перемотка кликом по полоске
-      container.addEventListener("click", (e) => {
-        const width = container.clientWidth;
-        const clickX = e.offsetX;
-        const duration = audio.duration;
-        audio.currentTime = (clickX / width) * duration;
+      // 3. Перемотка кликом и перетаскиванием по полоске
+      function seekToPosition(clientX) {
+        const rect = container.getBoundingClientRect();
+        const width = rect.width;
+        const x = Math.max(0, Math.min(clientX - rect.left, width));
+        const percent = (x / width) * 100;
+        progressBar.style.width = percent + "%";
+        if (audio.duration && !isNaN(audio.duration)) {
+          audio.currentTime = (x / width) * audio.duration;
+        }
+      }
+      container.addEventListener("click", (e) => seekToPosition(e.clientX));
+      let wasPlaying = false;
+      container.addEventListener("mousedown", (e) => {
+        isSeeking = true;
+        wasPlaying = !audio.paused;
+        if (wasPlaying) audio.pause();
+        seekToPosition(e.clientX);
       });
+      document.addEventListener("mousemove", (e) => {
+        if (isSeeking) seekToPosition(e.clientX);
+      });
+      function endSeek() {
+        if (isSeeking && wasPlaying) audio.play();
+        isSeeking = false;
+      }
+      document.addEventListener("mouseup", endSeek);
+      document.addEventListener("mouseleave", endSeek);
       const volumeSlider = document.getElementById("volumeSlider");
       audio.volume = volumeSlider.value;
       volumeSlider.addEventListener('input', () => {
